@@ -1,24 +1,23 @@
-(defn solution [coll n]
+(defn solution [coll]
   (loop [result '()
          p coll]
-    (if (nil? (first p))
-      result
-      (recur (concat result
-                     (if (< (count p) n)
-                       p
-                       (reverse (take n p))))
-             (nthrest p n)))))
+    (let [x (rest p)
+          y (rest x)]
+      (if (nil? (first p))
+        result
+        (recur (concat result
+                       (if (nil? (first x))
+                         nil
+                         [(first x)])
+                       [(first p)])
+               y)))))
 
 (assert
- (= (solution '(1 2 3 4 5) 2)
+ (= (solution '(1 2 3 4 5))
     '(2 1 4 3 5)))
 
 (assert
- (= (solution '(1 2 3 4 5) 3)
-    '(3 2 1 4 5)))
-
-(assert
- (= (solution '(1 2 3 4 5 6) 2)
+ (= (solution '(1 2 3 4 5 6))
     '(2 1 4 3 6 5)))
 
 (println "Pass!")
