@@ -9,7 +9,8 @@
  */
 public class Solution {
   public ArrayList<TreeNode> generateTrees(int n) {
-    return generateTrees(0, n);
+    if (n == 0) return generateTrees(1, 0);
+    return generateTrees(1, n);
   }
   public ArrayList<TreeNode> generateTrees(int start, int end) {
     ArrayList<TreeNode> subs = new ArrayList<TreeNode>();
