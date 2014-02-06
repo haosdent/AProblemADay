@@ -11,20 +11,16 @@
  */
 public class Solution {
   public ListNode mergeKLists(ArrayList<ListNode> lists) {
-    ListNode pre = new ListNode(-1);
-    ListNode head = pre;
-    pre.next = lists.first();
-    ArrayList<ListNode> tmpLists = lists;
-    boolean flag = true;
-    while (flag) {
-      lists = tmpLists;
-      if (tmpLists.size() == 0) {
-        flag = false
-      }
-      for (ListNode list : lists) {
-        if 
-      }
+    if (lists.size() == 0) {
+      return null;
     }
+
+    ListNode first = lists.get(0);
+    for (int i = 1; i < lists.size(); i++) {
+      first = mergeTwoLists(first, lists.get(i));
+    }
+
+    return first;
   }
 
   public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
