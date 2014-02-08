@@ -12,12 +12,9 @@
 public class Solution {
   public ListNode insertionSortList(ListNode head) {
     ListNode dummy = new ListNode(Integer.MIN_VALUE);
-    dummy.next = head;
-    for (ListNode cur = head, pre = dummy; cur != null;) {
+    for (ListNode cur = head; cur != null;) {
+      ListNode pos = findInsertPos(dummy, cur.val);
       ListNode tmp = cur.next;
-      pre.next = cur.next;
-      cur.next = null;
-      ListNode pos = findInsertPos(dummy, pre, cur.val);
       cur.next = pos.next;
       pos.next = cur;
       cur = tmp;
@@ -25,9 +22,19 @@ public class Solution {
     return dummy.next;
   }
 
-  public ListNode findInsertPos(ListNode head, ListNode stop, int x) {
-    ListNode pre = head;
-    for (ListNode cur = head; cur != stop && cur.val <= stop.val; pre = cur, cur = cur.next);
+  public ListNode findInsertPos(ListNode head) {
+    ListNode pre = null;
+    for (ListNode cur = head; cur != null && cur.val <= x; pre = cur, cur = cur.next);
     return pre;
   }
 }
+
+
+
+
+
+
+
+
+
+
