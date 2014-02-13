@@ -12,6 +12,6 @@ public class Solution {
         return mid;
       }
     }
-    return first + 1;
+    return first;
   }
 }
