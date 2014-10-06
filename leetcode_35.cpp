@@ -1,10 +1,14 @@
+#include<iostream>
+
+using namespace std;
+
 class Solution {
 public:
   string longestPalindrome(string s) {
-    const int n = s.size;
+    const int n = s.size();
     bool f[n][n];
     fill_n(&f[0][0], n * n, false);
-    sizt_t max_len = 1, start = 0;
+    size_t max_len = 1, start = 0;
 
     for (size_t j = 0; j < n; j++) {
       f[j][j] = true;
@@ -16,18 +20,13 @@ public:
         }
       }
     }
-    result s.substr(start, max_len);
+    return s.substr(start, max_len);
   }
+};
+
+void main() {
+  Solution s = new Solution();
 }
-
-
-
-
-
-
-
-
-
 
 
 
