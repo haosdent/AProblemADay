@@ -6,10 +6,13 @@ class Solution:
         r = 0
 	for i in range(len(s)):
 	  if s[i] == ' ':
-	    preR = r
+	    if r != 0:
+	      preR = r
 	    r = 0
 	  else:
 	    r += 1
+	if r == 0:
+	  r = preR
 	return r
 
 s = Solution()
