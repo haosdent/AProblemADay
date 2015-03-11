@@ -11,5 +11,15 @@ class Solution:
                 f[1][i][j] = s1[i] == s2[j]
 
         for i in xrange(1, l + 1):
-            for j in xrange(l - i):
-                for k in xrange()
+            for j in xrange(l + 1 - i):
+                for m in xrange(l + 1 - i):
+                    for n in xrange(1, i):
+                        if (f[n][j][m] and f[i - n][j + n][m + n]) or (f[n][j][i - n + m] and f[i - n][j + n][m]):
+                            f[i][j][m] = True
+                            break
+
+        return f[l][0][0]
+
+
+s = Solution()
+print s.isScramble('rgeat', 'great')
