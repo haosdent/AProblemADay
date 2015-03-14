@@ -8,6 +8,8 @@ class Solution:
         while x > 0:
             r = r * 10 + x % 10
             x /= 10
+        if r > 2147483650:
+            r = 0
         return r * sign
 
 s = Solution()
