@@ -8,6 +8,8 @@ class Solution:
         si = sl
         while si > 0:
             s_start = si - Solution.UNIT_BIT
+            if s_start < 0:
+                s_start = 0
             r.append(long(s[s_start: si]))
             si = s_start
         return r
@@ -15,7 +17,10 @@ class Solution:
     def to_str(self, l):
         r = ''
         for e in l:
-            r = str(e) + r
+            e_str = str(e)
+            if len(e_str) < Solution.UNIT_BIT:
+                e_str = (Solution.UNIT_BIT - len(e_str)) * '0' + e_str
+            r = e_str + r
         zero_i = 0
         for e in r:
             if e == '0':
@@ -23,6 +28,8 @@ class Solution:
             else:
                 break
         r = r[zero_i:]
+        if r == '':
+            r = '0'
         return r
 
     # @param num1, a string
@@ -45,4 +52,5 @@ class Solution:
 s = Solution()
 #print s.to_int_list("123456789123456788")
 #print s.to_str([123456788, 123456789])
-print s.multiply("123456789123456788", "123456789")
+print s.multiply("725071900", "6478")
+print 725071900 * 6478
