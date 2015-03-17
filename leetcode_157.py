@@ -13,7 +13,7 @@ class Solution:
         if word_len == 0 or s_len < word_len:
             return result
 
-        for start in xrange(0, s_len - cat_len):
+        for start in xrange(0, s_len - cat_len + 1):
             word_count = {}
             for word in dic:
                 if word in word_count:
@@ -34,4 +34,5 @@ class Solution:
 
 
 s = Solution()
-print s.findSubstring("barfoothefoobarman", ["foo", "bar"])
+#print s.findSubstring("barfoothefoobarman", ["foo", "bar"])
+print s.findSubstring("a", ["a"])

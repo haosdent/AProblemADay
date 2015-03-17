@@ -1,7 +1,7 @@
 class Solution:
     def getRow(self, rowIndex):
         if rowIndex <= 0:
-            return []
+            return [1]
         result_row = [1]
         for i in xrange(1, rowIndex + 1):
             result_row.insert(0, 0)
