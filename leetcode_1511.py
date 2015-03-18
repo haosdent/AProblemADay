@@ -6,7 +6,7 @@ class Solution:
         beginY = 0
         endY = len(matrix) - 1
         if endY < 0:
-            return result
+            return matrix
         endX = len(matrix[0]) - 1
         num = 0
         while True:
