@@ -14,12 +14,12 @@ public:
         if (isMatch(s, p + 2)) {
           return true;
         }
-        s++
+        s++;
       }
       return isMatch(s, p + 2);
     }
   }
-}
+};
 
 
 
