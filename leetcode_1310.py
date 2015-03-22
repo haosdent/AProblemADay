@@ -6,16 +6,20 @@ class Solution:
         prev = 0
         cur = 1
         l = len(s)
-        if l == 0:
+        if l == 0 or s[0] == '0':
             return 0
 
         for i in xrange(1, l + 1):
+            if s[i - 1] == '0':
+                cur = 0
+
             if i <= 1:
                 prev = 0
-            elif s[i - 1] > 6 and s[i - 2] > 1:
+            elif ord(s[i - 1]) > ord('6') and ord(s[i - 2]) > ord('1'):
                 prev = 0
-            elif s[i - 2] > 2:
+            elif ord(s[i - 2]) > ord('2'):
                 prev = 0
+
             tmp = cur
             cur += prev
             prev = tmp
@@ -23,5 +27,11 @@ class Solution:
         return cur
 
 s = Solution()
-print s.numDecodings([1, 2])
+#print s.numDecodings("12")
+#print s.numDecodings("0")
+#print s.numDecodings("10")
+#print s.numDecodings("01")
+print s.numDecodings("10012")
+#print s.numDecodings("101")
+print s.numDecodings("110")
 
