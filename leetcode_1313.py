@@ -31,8 +31,7 @@ class Solution:
             if tmp_sen[len(tmp_sen) - 1] == ' ':
                 tmp_sen = tmp_sen[:len(tmp_sen) - 1]
             result.append(tmp_sen)
-            return
-        if path_last in prev_map:
+        elif path_last in prev_map:
             prev = prev_map[path_last]
             for i in prev:
                 path.append(i)
